@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RadioCore Player</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="ciano">
+  <header class="topo">
+    <div class="logo">📻 <strong>RadioCore</strong> <span class="sub">Player</span></div>
+    <div class="relogio">
+      <span id="relogio">--:--:--</span>
+      <span id="data-extenso"></span>
+    </div>
+    <div class="temas">
+      <button class="cor" data-tema="ciano" style="--c:#00f2fe" title="Ciano Elétrico"></button>
+      <button class="cor" data-tema="magenta" style="--c:#ff007f" title="Magenta Retrô"></button>
+      <button class="cor" data-tema="esmeralda" style="--c:#00f5a0" title="Esmeralda Studio"></button>
+      <button class="cor" data-tema="ambar" style="--c:#ffb300" title="Âmbar Broadcast"></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="painel-principal">
+      <div class="agora">
+        <div class="disco">💿</div>
+        <div class="agora-info">
+          <span class="tag" id="tag-tipo">MÚSICA</span>
+          <h1 id="titulo-atual">—</h1>
+          <h2 id="artista-atual">—</h2>
+          <div class="badges">
+            <span class="badge">CANAL PGM</span>
+            <span class="badge" id="badge-duracao">—</span>
+            <span class="badge no-ar" id="badge-no-ar">NO AR</span>
+          </div>
+        </div>
+        <div class="cronometro">
+          <span id="cronometro">-00:00</span>
+          <span class="rotulo">até o próximo crossfade</span>
+        </div>
+      </div>
+      <div class="waveform"><canvas id="wave" width="900" height="120"></canvas></div>
+      <button id="btn-ar" class="btn-ar">▶ TOMAR NO AR</button>
+    </section>
+
+    <section class="painel-fila">
+      <h3>Próximas 5 faixas</h3>
+      <ul id="fila"></ul>
+    </section>
+
+    <section class="painel-automacao">
+      <h3>Automação & Watchdog 24/7</h3>
+      <div class="metricas">
+        <div class="metrica"><span id="m-onair">—</span><label>Status</label></div>
+        <div class="metrica"><span id="m-musicas">0</span><label>Músicas hoje</label></div>
+        <div class="metrica"><span id="m-blocos">0</span><label>Blocos hoje</label></div>
+        <div class="metrica"><span id="m-uptime">0s</span><label>Uptime</label></div>
+      </div>
+    </section>
+
+    <section class="painel-cartwall">
+      <h3>Quickstart Cartwall <small>(teclas 1-8 · Espaço pausa · N pula · M mudo)</small></h3>
+      <div id="cartwall" class="cartwall"></div>
+    </section>
+  </main>
+
+  <audio id="player"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
