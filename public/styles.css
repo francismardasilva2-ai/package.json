@@ -1,0 +1,67 @@
+:root { --bg:#0b0e14; --card:#141a26; --txt:#e8edf5; --mut:#8b95a7; --acc:#00f2fe; --glow:rgba(0,242,254,.35); }
+body[data-theme="magenta"] { --acc:#ff007f; --glow:rgba(255,0,127,.35); }
+body[data-theme="esmeralda"] { --acc:#00f5a0; --glow:rgba(0,245,160,.35); }
+body[data-theme="ambar"] { --acc:#ffb300; --glow:rgba(255,179,0,.35); }
+
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--txt); font-family:'Segoe UI',system-ui,sans-serif; min-height:100vh; }
+
+.topo { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; border-bottom:1px solid rgba(255,255,255,.08); flex-wrap:wrap; gap:10px; }
+.logo { font-size:1.2rem; } .logo .sub { color:var(--acc); }
+.relogio { text-align:center; }
+#relogio { font-size:1.6rem; font-weight:700; letter-spacing:.08em; font-variant-numeric:tabular-nums; }
+#data-extenso { display:block; font-size:.75rem; color:var(--mut); text-transform:capitalize; }
+
+.badge { padding:3px 10px; border-radius:999px; font-size:.68rem; font-weight:700; letter-spacing:.1em; background:rgba(255,255,255,.08); color:var(--mut); }
+.badge.no-ar { background:rgba(0,200,120,.15); color:#00e68a; animation:pulso 1.6s infinite; }
+@keyframes pulso { 50% { opacity:.55; } }
+
+.temas { display:flex; gap:8px; }
+.cor { width:22px; height:22px; border-radius:50%; border:2px solid rgba(255,255,255,.25); background:var(--c); cursor:pointer; }
+
+main { display:grid; gap:18px; padding:22px; max-width:1200px; margin:0 auto; grid-template-columns:1fr 1fr; }
+.painel-principal { grid-column:1 / -1; background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:16px; padding:22px; }
+
+.agora { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.disco { font-size:3.4rem; animation:girar 6s linear infinite; }
+@keyframes girar { to { transform:rotate(360deg); } }
+.agora-info { flex:1; min-width:200px; }
+.agora-info h1 { font-size:1.6rem; }
+.agora-info h2 { color:var(--mut); font-size:1rem; font-weight:500; }
+.tag { font-size:.68rem; font-weight:800; letter-spacing:.12em; color:var(--acc); }
+.badges { display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
+.cronometro { text-align:right; }
+#cronometro { font-size:2.4rem; font-weight:800; color:var(--acc); font-variant-numeric:tabular-nums; }
+.rotulo { font-size:.7rem; color:var(--mut); }
+
+.waveform { margin-top:16px; }
+canvas { width:100%; height:120px; background:#0e1420; border-radius:10px; }
+.btn-ar { margin-top:16px; width:100%; padding:14px; border:none; border-radius:12px; background:var(--acc); color:#000; font-weight:800; font-size:1rem; cursor:pointer; box-shadow:0 0 24px var(--glow); }
+
+.painel-fila, .painel-automacao, .painel-cartwall { background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:16px; padding:18px; }
+h3 { font-size:.95rem; margin-bottom:12px; }
+h3 small { color:var(--mut); font-weight:400; }
+
+#fila { list-style:none; display:grid; gap:8px; }
+.card-fila { display:flex; align-items:center; gap:12px; padding:10px 12px; background:rgba(255,255,255,.04); border-radius:10px; border-left:3px solid var(--acc); }
+.card-fila.comercial { border-left-color:#ff5f5f; }
+.card-fila.emergencia { border-left-color:#ffb300; }
+.card-fila .hora { font-variant-numeric:tabular-nums; color:var(--acc); font-weight:700; }
+.card-fila small { color:var(--mut); display:block; }
+
+.metricas { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.metrica { text-align:center; background:rgba(255,255,255,.04); padding:12px; border-radius:10px; }
+.metrica span { display:block; font-size:1.4rem; font-weight:800; color:var(--acc); }
+.metrica label { font-size:.7rem; color:var(--mut); }
+
+.cartwall { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.pad { padding:14px 8px; border:1px solid rgba(255,255,255,.1); border-radius:12px; background:rgba(255,255,255,.04); color:var(--txt); cursor:pointer; text-align:center; transition:.15s; }
+.pad kbd { display:block; font-size:.75rem; color:var(--acc); margin-bottom:6px; }
+.pad:hover { border-color:var(--acc); box-shadow:0 0 16px var(--glow); }
+.pad.flash { background:var(--acc); color:#000; }
+
+@media (max-width:800px) {
+  main { grid-template-columns:1fr; }
+  .cartwall { grid-template-columns:repeat(2,1fr); }
+  .metricas { grid-template-columns:repeat(2,1fr); }
+}
