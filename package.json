@@ -1,0 +1,16 @@
+{
+  "name": "radiocore-player",
+  "version": "1.0.0",
+  "description": "RadioCore Player — automação e playout 24/7 para rádio",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "import": "node src/importer.js",
+    "test": "node --test tests/"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.19.2",
+    "music-metadata": "^7.14.0"
+  }
+}
